@@ -95,7 +95,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/valor-software/ng2-table.git"
+    // "url": "git+ssh://git@github.com/valor-software/ng2-table.git"
+    "url": "git+ssh://git@github.com/jota4030/custom-ng2-table.git"
+
   },
   "scripts": {
     "flow.build:dev": "webpack --progress --color",
