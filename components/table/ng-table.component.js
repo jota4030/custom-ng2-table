@@ -90,19 +90,6 @@ var NgTableComponent = (function () {
                 let result="";
                 if(curr!==null && prev!==null){
                     result=prev[curr];
-                    // if(tipo==="boton"){
-                    //     $(result).css("background-color","red")
-                    //     $(result).on("click",function() {
-                    //       console.log("sdvfgdsvfsdv")
-                    //     });
-                    //     result = $(result).text("joas")[0].outerHTML
-                    //       console.log(result)
-
-                    //     // $(that.elementoTabla).find($(result)).on("click",function(event) {
-                    //     //     console.log(event)
-                    //     // });
-                    //     // console.log($(that.elementoTabla).find($(result)))
-                    // }
                 }
                  return result; 
             }, row);
@@ -115,7 +102,7 @@ var NgTableComponent = (function () {
     };
     NgTableComponent.decorators = [
         { type: core_1.Component, args: [{
-                    selector: 'ng-table',
+                    selector: 'ng-tabla',
                     styles:[`td.celda{
                         border: 0;
                         border-bottom:1px solid #ddd;
