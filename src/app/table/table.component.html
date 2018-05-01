@@ -1,0 +1,34 @@
+<div class="table-responsive">
+    <table class="table table-inverse" ngClass="{{config.className || ''}}"
+           role="grid" style="width: 100%;">
+      <thead>
+        <tr class="fila-header" role="row">
+          <th class="celda-header" [ngStyle]="column.style" *ngFor="let column of columns" [ngTableSorting]="config" [column]="column" 
+              (sortChanged)="onChangeTable($event)" ngClass="{{column.className || ''}}">
+            {{column.title}}
+            <i *ngIf="config && column.sort" class="pull-right fa"
+              [ngClass]="{'fa-chevron-down': column.sort === 'desc', 'fa-chevron-up': column.sort === 'asc'}"></i>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr  *ngIf="showFilterRow">
+        <td  *ngFor="let column of columns">
+          <input *ngIf="column.filtering" placeholder="{{column.filtering.placeholder}}"
+                 [ngTableFiltering]="column.filtering"
+                 class="form-control"
+                 style="width: auto;"
+                 (tableChanged)="onChangeTable(config)"/>
+        </td>
+      </tr>
+        <tr class="fila" *ngFor="let row of rows">
+          <td class="celda" [ngStyle]="column.style" (click)="cellClick($event, row, column.name)" *ngFor="let column of columns" [innerHtml]="sanitize(getData(row, column.name,column.tipo))"></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="footer" [ngStyle]="column.styleFooter" *ngFor="let column of columns">{{column.nameFooter || ""}}</td>
+        </tr>
+      </tfoot>
+    </table>
+</div>
